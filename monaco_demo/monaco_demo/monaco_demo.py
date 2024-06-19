@@ -68,7 +68,6 @@ def diff_view():
         modified=FileState.modified_content,
         original_language="text",
         modified_language="text",
-        on_change=FileState.on_change.debounce(1000),
     )
 
 
