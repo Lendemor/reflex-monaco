@@ -3,7 +3,6 @@
 # For wrapping react guide, visit https://reflex.dev/docs/wrapping-react/overview/
 
 import reflex as rx
-from reflex.utils.imports import ImportDict
 
 # Some libraries you want to wrap may require dynamic imports.
 # This is because they they may not be compatible with Server-Side Rendering (SSR).
@@ -28,10 +27,6 @@ class MonacoComponent(rx.Component):
 
     height: rx.Var[str]
 
-    on_change: rx.EventHandler[lambda e: [e]]
-
-    on_validate: rx.EventHandler[lambda e: [e]]
-
 
 class MonacoEditor(MonacoComponent):
     """Monaco component."""
@@ -41,28 +36,21 @@ class MonacoEditor(MonacoComponent):
 
     is_default = True
 
-    # The props of the React component.
-    # Note: when Reflex compiles the component to Javascript,
-    # `snake_case` property names are automatically formatted as `camelCase`.
-    # The prop names may be defined in `camelCase` as well.
-    # some_prop: rx.Var[str] = "some default value"
-    # some_other_prop: rx.Var[int] = 1
+    # The default value to display in the editor.
     default_value: rx.Var[str]
 
+    # The default language to use for the editor.
     default_language: rx.Var[str]
 
+    # The path to the default file to load in the editor.
     default_path: rx.Var[str]
 
+    # The value to display in the editor.
     value: rx.Var[str]
 
-    # By default Reflex will install the library you have specified in the library property.
-    # However, sometimes you may need to install other libraries to use a component.
-    # In this case you can use the lib_dependencies property to specify other libraries to install.
-    # lib_dependencies: list[str] = []
+    on_change: rx.EventHandler[lambda e: [e]]
 
-    def add_imports(self) -> ImportDict:
-        # return {**self.loading.get_imports()
-        return {}
+    on_validate: rx.EventHandler[lambda e: [e]]
 
 
 class DiffMonacoEditor(MonacoComponent):

@@ -17,6 +17,7 @@ dependencies = ["reflex>=0.5.0"]
 classifiers = ["Development Status :: 4 - Beta"]
 
 [project.urls]
+source = "https://github.com/Lendemor/reflex-monaco"
 
 [project.optional-dependencies]
 dev = ["build", "twine"]
