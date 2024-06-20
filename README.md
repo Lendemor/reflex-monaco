@@ -71,11 +71,11 @@ from reflex_monaco import monaco
 @rx.page()
 def index():
     return monaco(
-    default_language='javascript',
-    default_value='console.log("Hello, world!");',
-    height='500px',
-    width='100%'
-)
+        default_language='javascript',
+        default_value='console.log("Hello, world!");',
+        height='500px',
+        width='100%'
+    )
 ```
 
 See the code of the demo for a case using State.
