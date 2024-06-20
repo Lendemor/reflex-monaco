@@ -16,7 +16,7 @@ class MonacoComponent(rx.Component):
     # The theme to use for the editor.
     theme: rx.Var[str] = rx.color_mode_cond("light", "vs-dark")  # type: ignore
 
-    # The width of the editor.
+    # The line to jump to in the editor.
     line: rx.Var[int] = rx.Var.create_safe(1, _var_is_string=False)
 
     # The height of the editor.
@@ -29,7 +29,6 @@ class MonacoComponent(rx.Component):
 class MonacoEditor(MonacoComponent):
     """The Monaco Editor component."""
 
-    # The React component tag.
     tag = "MonacoEditor"
 
     is_default = True

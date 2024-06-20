@@ -95,7 +95,7 @@ def index() -> Any:
         ),
         rx.logo(),
         align="center",
-        spacing="7",
+        spacing="6",
         width="100vw",
         height="100vh",
     ), rx.color_mode.button(position="top-right", allow_system=True)

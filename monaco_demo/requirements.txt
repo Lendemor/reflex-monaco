@@ -1,2 +1,2 @@
-reflex==0.5.4
+git+https://github.com/reflex-dev/reflex.git
 reflex-monaco
