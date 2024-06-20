@@ -74,7 +74,8 @@ def index():
     default_language='javascript',
     default_value='console.log("Hello, world!");',
     height='500px',
-    language='javascript',
     width='100%'
 )
 ```
+
+See the code of the demo for a case using State.
