@@ -55,11 +55,11 @@ The Monaco Editor component is a versatile and powerful code editor that can be 
 
 ### `on_change`
 - **Description**: Triggered when the editor value changes.
-- **Type**: `on_change: rx.EventHandler[lambda e: [e]]`
+- **Signature**: `lambda e: [e]`
 
 ### `on_validate`
 - **Description**: Triggered when the content is validated. (limited to some languages)
-- **Type**: `on_validate: rx.EventHandler[lambda e: [e]]`
+- **Signature**: `lambda e: [e]`
 
 ## Usage Example
 Here is a basic example of how to use the Monaco Editor component:
