@@ -1,13 +1,10 @@
 """Welcome to Reflex! This file showcases the custom component in a basic app."""
 
-from pathlib import Path
 from typing import Any
-from rxconfig import config
-
-import reflex as rx
 
 from reflex_monaco import monaco, monaco_diff
-from reflex.style import color_mode, set_color_mode
+
+import reflex as rx
 
 ORIGINAL_CONTENT = """
 # Reflex Monaco Editor Demo
@@ -35,12 +32,15 @@ class FileState(rx.State):
     original_content: str = ORIGINAL_CONTENT
     modified_content: str = ""
 
+    @rx.event
     def load_file_content(self):
         self.modified_content = self.original_content
 
+    @rx.event
     def on_change(self, value: str):
         self.modified_content = value
 
+    @rx.event
     def on_view_change(self, view: str):
         self.active_view = view
 
@@ -76,7 +76,10 @@ def index() -> Any:
     return rx.vstack(
         rx.box(),
         rx.heading(
-            "Monaco Editor Demo", size="9", align="center", text_decoration="underline"
+            "Monaco Editor Demo",
+            size="9",
+            align="center",
+            text_decoration="underline",
         ),
         rx.code("pip install reflex-monaco"),
         rx.center(
@@ -98,7 +101,10 @@ def index() -> Any:
         spacing="6",
         width="100vw",
         height="100vh",
-    ), rx.color_mode.button(position="top-right", allow_system=True)
+    ), rx.color_mode.button(
+        position="top-right",
+        allow_system=True,
+    )
 
 
 # Add state and page to the app.
