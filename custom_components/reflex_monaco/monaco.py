@@ -17,7 +17,7 @@ class MonacoComponent(rx.Component):
     theme: rx.Var[str] = rx.color_mode_cond("light", "vs-dark")  # type: ignore
 
     # The line to jump to in the editor.
-    line: rx.Var[int] = rx.Var.create_safe(1, _var_is_string=False)
+    line: rx.Var[int] = rx.Var.create(1)
 
     # The height of the editor.
     width: rx.Var[str]
@@ -46,10 +46,10 @@ class MonacoEditor(MonacoComponent):
     value: rx.Var[str]
 
     # Triggered when the editor value changes.
-    on_change: rx.EventHandler[lambda e: [e]]
+    on_change: rx.EventHandler[rx.event.passthrough_event_spec(str)]
 
     # Triggered when the content is validated. (limited to some languages)
-    on_validate: rx.EventHandler[lambda e: [e]]
+    on_validate: rx.EventHandler[rx.event.passthrough_event_spec(str)]
 
 
 class DiffMonacoEditor(MonacoComponent):
