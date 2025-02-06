@@ -14,7 +14,7 @@ class MonacoComponent(rx.Component):
     language: rx.Var[str]
 
     # The theme to use for the editor.
-    theme: rx.Var[str] = rx.color_mode_cond("light", "vs-dark")  # type: ignore
+    theme: rx.Var[str] = rx.color_mode_cond("light", "vs-dark")
 
     # The line to jump to in the editor.
     line: rx.Var[int] = rx.Var.create(1)

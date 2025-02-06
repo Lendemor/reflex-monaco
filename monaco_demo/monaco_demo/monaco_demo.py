@@ -2,9 +2,8 @@
 
 from typing import Any
 
-from reflex_monaco import monaco, monaco_diff
-
 import reflex as rx
+from reflex_monaco import monaco, monaco_diff
 
 ORIGINAL_CONTENT = """
 # Reflex Monaco Editor Demo
@@ -34,14 +33,17 @@ class FileState(rx.State):
 
     @rx.event
     def load_file_content(self):
+        """Load the file content."""
         self.modified_content = self.original_content
 
     @rx.event
     def on_change(self, value: str):
+        """Update the modified content."""
         self.modified_content = value
 
     @rx.event
     def on_view_change(self, view: str):
+        """Update the active view."""
         self.active_view = view
 
 
@@ -50,6 +52,7 @@ MONACO_HEIGHT = "50vh"
 
 
 def edit_view():
+    """The Monaco editor view."""
     return monaco(
         width=MONACO_WIDTH,
         height=MONACO_HEIGHT,
@@ -61,6 +64,7 @@ def edit_view():
 
 
 def diff_view():
+    """The Monaco diff editor view."""
     return monaco_diff(
         width=MONACO_WIDTH,
         height=MONACO_HEIGHT,
@@ -73,6 +77,7 @@ def diff_view():
 
 @rx.page(on_load=FileState.load_file_content)
 def index() -> Any:
+    """The main page."""
     return rx.vstack(
         rx.box(),
         rx.heading(
