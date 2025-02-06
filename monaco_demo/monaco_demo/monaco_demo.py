@@ -2,9 +2,8 @@
 
 from typing import Any
 
-from reflex_monaco import monaco, monaco_diff
-
 import reflex as rx
+from reflex_monaco import monaco, monaco_diff
 
 ORIGINAL_CONTENT = """
 # Reflex Monaco Editor Demo
