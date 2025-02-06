@@ -31,14 +31,17 @@ class FileState(rx.State):
     original_content: str = ORIGINAL_CONTENT
     modified_content: str = ""
 
+    @rx.event
     def load_file_content(self):
         """Load the file content."""
         self.modified_content = self.original_content
 
+    @rx.event
     def on_change(self, value: str):
         """Update the modified content."""
         self.modified_content = value
 
+    @rx.event
     def on_view_change(self, view: str):
         """Update the active view."""
         self.active_view = view
@@ -78,7 +81,10 @@ def index() -> Any:
     return rx.vstack(
         rx.box(),
         rx.heading(
-            "Monaco Editor Demo", size="9", align="center", text_decoration="underline"
+            "Monaco Editor Demo",
+            size="9",
+            align="center",
+            text_decoration="underline",
         ),
         rx.code("pip install reflex-monaco"),
         rx.center(
@@ -100,7 +106,10 @@ def index() -> Any:
         spacing="6",
         width="100vw",
         height="100vh",
-    ), rx.color_mode.button(position="top-right", allow_system=True)
+    ), rx.color_mode.button(
+        position="top-right",
+        allow_system=True,
+    )
 
 
 # Add state and page to the app.
