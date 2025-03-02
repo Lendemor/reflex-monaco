@@ -8,7 +8,7 @@ import reflex as rx
 class MonacoComponent(rx.Component):
     """Base Monaco component."""
 
-    library = "@monaco-editor/react@4.6.0"
+    library = "@monaco-editor/react@4.7.0"
 
     # The language to use for the editor.
     language: rx.Var[str]
